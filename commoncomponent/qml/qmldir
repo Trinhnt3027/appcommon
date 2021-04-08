@@ -1,0 +1,3 @@
+module commoncomponent
+plugin commoncomponent ../../lib
+typeinfo plugins.qmltypes
