@@ -3,7 +3,9 @@ TARGET   = hmiappcommon
 QT      += qml quick core
 CONFIG  += plugin c++14
 
-INCLUDEPATH += /home/trinhnt/WorkSpace/C++_Projects/install/include/Utility
+BASE_INCLUDE_PATH = /usr/local/include
+
+INCLUDEPATH += $$BASE_INCLUDE_PATH/Utility
 
 INCLUDEPATH += include/
 INCLUDEPATH += include/hmi
@@ -24,20 +26,20 @@ SOURCES += \
            src/hmi/SceneController.cpp \
            src/Util/HLog.cpp \
 
-INSTALL_DIR = $$PWD/../../Common
+INSTALL_DIR = /usr/local
+#DIR_INSTALL = /home/trinhnt/WorkSpace/Qt_Projects/Build
 
-DESTDIR = $$INSTALL_DIR/lib
+#DESTDIR = $$DIR_INSTALL/lib
 
-UTIL_LIB_DIR = /home/trinhnt/WorkSpace/C++_Projects/install/lib
-LIBS += -L$$UTIL_LIB_DIR -lUtility
+#UTIL_LIB_DIR = /home/trinhnt/WorkSpace/C++_Projects/install/lib
+LIBS += -lUtility
 
-
-copyCommands.commands += echo Copy library data...
-copyCommands.commands += && mkdir -p $$INSTALL_DIR/include/$$TARGET
-copyCommands.commands += && cp -r $$PWD/include/* $$INSTALL_DIR/include/$$TARGET
-copyCommands.commands += && echo Copy done!!!
-first.depends          = $(first) copyCommands
-QMAKE_EXTRA_TARGETS   += first copyCommands
+#copyCommands.commands += echo Copy library data...
+#copyCommands.commands += && mkdir -p $$INSTALL_DIR/include/$$TARGET
+#copyCommands.commands += && cp -r $$PWD/include/* $$INSTALL_DIR/include/$$TARGET
+#copyCommands.commands += && echo Copy done!!!
+#first.depends          = $(first) copyCommands
+#QMAKE_EXTRA_TARGETS   += first copyCommands
 
 target.path = $$INSTALL_DIR/lib
 header.path   = $$INSTALL_DIR/include/$$TARGET

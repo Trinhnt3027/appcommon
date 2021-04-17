@@ -2,7 +2,7 @@
 #include "CommonWindow.h"
 #include "HLog.h"
 
-#include "Logger/Logger.h"
+#include <Logger/Logger.h>
 
 using namespace hmiappcommon;
 using namespace Utility::Logger;
