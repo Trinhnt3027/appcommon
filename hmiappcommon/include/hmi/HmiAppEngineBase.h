@@ -18,7 +18,16 @@ public:
     QQmlEngine* getQmlEngine();
     CommonWindow* getWindow();
 
+    template<typename T>
+    T* getHmiEngine()
+    {
+        return static_cast<T*>(getEngine());
+    }
+
     virtual void start();
+
+private:
+    HmiAppEngineBase* getEngine();
 
 private:
     QString mAppId;

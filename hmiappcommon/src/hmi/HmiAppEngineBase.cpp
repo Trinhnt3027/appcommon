@@ -42,3 +42,8 @@ void HmiAppEngineBase::start()
 {
     HInfo();
 }
+
+HmiAppEngineBase *HmiAppEngineBase::getEngine()
+{
+    return this;
+}
